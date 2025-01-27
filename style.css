@@ -1,0 +1,189 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+body {
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px;
+  font-weight: normal;
+  background: #f1f1f1;
+  color: #0f141e;
+}
+
+a {
+  color: #000;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+a:active {
+  color: blue;
+}
+
+a:visited {
+  color: grey;
+}
+
+.container {
+  min-width: 750px;
+  margin: auto;
+  padding-top: 30px;
+}
+
+.avatar {
+  width: 200px;
+  border-radius: 28px;
+  box-shadow: 4px 4px 14px rgba(0, 0, 0, .25);
+}
+
+.info {
+  margin-bottom: 20px;
+  display: flex;
+}
+
+.info-text {
+  margin-left: 40px;
+}
+
+.info-text p {
+  font-style: italic;
+  font-weight: bold;
+  color: #86898f;
+  margin: 0;
+}
+
+.info-text h4 {
+  margin-bottom: 10px;
+}
+
+@media (max-width: 768px) {
+  .info {
+    display: block;
+    text-align: center;
+  }
+}
+
+.card {
+  /* border: 1px solid black; */
+  border-radius: 20px;
+  padding: 15px 20px;
+  /* Хорошей практиклй считается использовать  margin-bottom, потому что если мы уберем какой-то элемент, то структура сайта не нарушится. Но если добавляем margin-topи убираем верхний элемент, то тогда структура сайта будет выглядеть некрасиво */
+  margin-bottom: 20px;
+}
+
+.card h2 {
+  margin-bottom: 10px;
+}
+
+.bg-yellow {
+  background: #fff9dc;
+}
+
+/* .form{
+  background: #ffe5e5;
+} */
+
+.bg-green {
+  background: #e5ffe7;
+}
+
+.btn {
+  background: #111;
+  padding: 15px 20px;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.btn:hover {
+  opacity: .8;
+}
+
+.list {
+  padding: 0 20px;
+}
+
+.list li {
+  color: #86898f;
+  margin-bottom: 10px;
+}
+
+.table {
+  width: 100%;
+}
+
+.table td {
+  padding-bottom: 10px;
+}
+
+.table td:nth-child(2),
+.table td:nth-child(3) {
+  color: #86898f;
+}
+
+.form h2 {
+  text-align: center;
+}
+
+/* Сгруппировали и объединили элементы "Ваше имя" и "Ваш email" классом form-row. Делаем так, что "имя" и "email" находились на одной строчке (display: inline-block) и занимали 50% пространства */
+
+.form-row {
+  margin-bottom: 10px;
+  /* Чуть более удачный вариант решения задачи, вместо display: inline-block и width: calc(49% - 20px) в  .form-row .form-group -это display: flex и width: 50% в .form-row .form-group. Благодаря display: flex у нас нет заморочек с calc, вычитываеним пикселей и т.д. Когда нужно сместить элементы в одну линию, то использовать display: flex очень удобно*/
+  display: flex;
+}
+
+.form-row .form-group {
+  /* display: inline-block; */
+  margin-right: 20px;
+  width: 50%;
+  /* 46% потому что если задать 50%, то они не помещаются на одной строке и поэтому переносятся. Но есть альтернатива такому способу - это задать width: calc(49% - 20px) */
+  /* width: 46%; */
+  /* width: calc(49% - 20px); */
+}
+
+/* Для "email" margin-right не нужен, нам нужен margin-right только для "Ваше имя", чтобы был отступ только между "Ваше имя" и "Ваш email", поэтому прописываем .form-row .from-group:last-child {
+margin-right: 0;} */
+
+.form-row .from-group:last-child {
+  margin-right: 0;
+}
+
+@media (max-width: 768px) {
+  .form-row {
+    margin-bottom: 10px;
+    display: block;
+  }
+
+  .form-row .form-group {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+}
+
+.form-group label {
+  /* label по умолчанию inline элемент, за счет display: block он становится блочным элементом и появляется перенос строк */
+  display: block;
+  font-size: 14px;
+  color: #86898f;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  box-sizing: border-box;
+  border: none;
+  /* background: transparent означает, что оно будет прозрачным и поэтому оно становится цветом фона нашего body или того, что лежит пож этим*/
+  background: transparent;
+  border-bottom: 1px solid #ccc;
+  /* Вписываемы текст будет черным если задано color: #000; */
+  color: #000;
+  padding: 15px 0 10px;
+  /* outline: none означает, что при вводе текста в input сам input не будет выделяться линией */
+  outline: none;
+  font-family: inherit;
+}
